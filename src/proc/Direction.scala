@@ -3,7 +3,7 @@ package proc
 
 object Direction extends Enumeration {
     type Direction = Value
-    val U, D, R, L, UR, UL, DR, DL = Value
+    val U, D, R, L, UR, UL, DR, DL, C = Value
 
     def toXY(direction: Direction): Vector ={
         direction match {
@@ -15,6 +15,7 @@ object Direction extends Enumeration {
             case UL => new Vector(-1, -1)
             case DR => new Vector(1, 1)
             case DL => new Vector(-1, 1)
+            case C => new Vector(0, 0)
             case _ => new Vector(0, 0)
         }
     }

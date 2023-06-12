@@ -3,18 +3,21 @@ package proc
 
 import processing.core.{PApplet, PConstants}
 import Functions._
-
 import proc.Direction.{D, DL, DR, L, R, U, UL, UR}
 
-class Grid(val m: AntSim, var width: Int, var height: Int){
-    val rand = scala.util.Random
-    val cells = Array.ofDim[Cell](height, width)
+import scala.util.Random
 
+class Grid(val m: AntSim, var width: Int, var height: Int){
+    val rand: Random.type = scala.util.Random
+    val cells: Array[Array[Cell]] = Array.ofDim[Cell](height, width)
+    val antCount: Int = 1000
+    val ants: Array[Ant] = Array.ofDim[Ant](antCount)
     for (i <- 0 until width) {
         for (j <- 0 until height) {
             cells(i)(j) = new Cell(m, this, i, j, CellType.empty)
         }
     }
+
 
 
 
@@ -53,6 +56,11 @@ class Grid(val m: AntSim, var width: Int, var height: Int){
             case DL =>
                 randomX = rand.between(0, boundBy(0, width - 1, wiggleRoom)).toInt
                 randomY = rand.between(boundBy(0, height - 1, height - wiggleRoom), height).toInt
+            case Direction.C =>
+                randomX = rand.between(boundBy(0, width - 1, width/2 - wiggleRoom),
+                    boundBy(0, width - 1, width/2 + wiggleRoom)).toInt
+                randomY = rand.between(boundBy(0, height - 1, height/2 - wiggleRoom),
+                    boundBy(0, height - 1, height/2 + wiggleRoom)).toInt
             case _ =>
                 randomX = 0
                 randomY = 0
@@ -73,7 +81,7 @@ class Grid(val m: AntSim, var width: Int, var height: Int){
                         randomY = boundBy(0, height - 1, population(i).y + Direction.toXY(direction).y).toInt
                         if (cells(randomX)(randomY).cell_type != cellType) {
                             population(populated) = cells(randomX)(randomY)
-                            population(populated).cell_type = cellType
+                            population(populated).changeType(cellType)
                             populated += 1
                         }
                     }
@@ -84,13 +92,29 @@ class Grid(val m: AntSim, var width: Int, var height: Int){
         }
     }
 
-    populateGridBy(CellType.food, Direction.UR, 500)
-    populateGridBy(CellType.colony, Direction.DL, 300)
+    populateGridBy(CellType.food, Direction.C, 3000)
+    populateGridBy(CellType.colony, Direction.UL, 1000)
+    for (j <- 0 until antCount) {
+        ants(j) = new Ant(m, this, 20, 20)
+    }
+    def updateGrid(): Unit ={
+        for (j <- 0 until antCount) {
+            ants(j).move()
+        }
+        for (i <- 0 until width) {
+            for (j <- 0 until height) {
+                cells(i)(j).updateCell()
+            }
+        }
+    }
     def drawGrid(): Unit ={
         for (i <- 0 until width) {
             for (j <- 0 until height) {
                 cells(i)(j).drawCell()
             }
+        }
+        for (j <- 0 until antCount) {
+            ants(j).drawAnt()
         }
     }
 

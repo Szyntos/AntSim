@@ -1,4 +1,4 @@
 package proc
 
-class Color(val r: Int, val g: Int, val b: Int){
+class Color(var r: Int, var g: Int, var b: Int){
 }
