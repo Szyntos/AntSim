@@ -5,7 +5,7 @@ import processing.core.PConstants
 class Ant(val m: AntSim, val g: Grid, var x: Float, var y: Float) {
     var vector: Vector = new Vector(0, 1)
     vector.desiredMagn = 1
-    var xOff: Float = scala.util.Random.nextInt(10)
+    var xOff: Float = scala.util.Random.nextInt(10) + scala.util.Random.nextFloat()%12
     var yOff: Float = scala.util.Random.nextInt(10)
     var color: Color = new Color(0, 0, 0)
     val width: Int = 4
@@ -22,18 +22,23 @@ class Ant(val m: AntSim, val g: Grid, var x: Float, var y: Float) {
     }
 
     def obstacleInFront(): Boolean = {
-        val newX = Functions.boundBy(0, g.width-1, (x + vector.x).toInt).toInt
-        val newY = Functions.boundBy(0, g.height-1, (y + vector.y).toInt).toInt
+        var newX = Functions.boundBy(0, g.width-1, (x + vector.x).toInt).toInt
+        var newY = Functions.boundBy(0, g.height-1, (y + vector.y).toInt).toInt
         if (g.cells(newX)(Y).cell_type == CellType.obstacle ||
             g.cells(X)(newY).cell_type == CellType.obstacle ||
             g.cells(newX)(newY).cell_type == CellType.obstacle){
             return true
         }
+        newX = Functions.boundBy(0, g.width - 1, (x + 2*vector.x).toInt).toInt
+        newY = Functions.boundBy(0, g.height - 1, (y + 2*vector.y).toInt).toInt
+        if (g.cells(newX)(newY).cell_type == CellType.obstacle) {
+            return true
+        }
         false
     }
 
-    def takeSamples(cellType: CellType.CellType): Direction.Direction = {
-        val samples: Int = 20
+    def takeSamples(cellType: CellType.CellType, samples: Int=20): Direction.Direction = {
+//        val samples: Int = 20
         val aOff: Float = 3.14f/20
         var newX: Int = 0
         var newY: Int = 0
@@ -51,6 +56,7 @@ class Ant(val m: AntSim, val g: Grid, var x: Float, var y: Float) {
                 newY = Functions.onTorus(0, g.height, (y + j * leftVector.y).toInt).toInt
                 if (g.cells(newX)(newY).cell_type == cellType){
                     leftCount += g.cells(newX)(newY).life_time
+//                    leftCount += 1
                 }
 
 
@@ -63,6 +69,7 @@ class Ant(val m: AntSim, val g: Grid, var x: Float, var y: Float) {
                 newY = Functions.onTorus(0, g.height, (y + j * forwardVector.y).toInt).toInt
                 if (g.cells(newX)(newY).cell_type == cellType) {
                     forwardCount += g.cells(newX)(newY).life_time
+//                    forwardCount += 1
                 }
 //                g.cells(newX)(newY).changeType(CellType.colony)
             }
@@ -75,6 +82,7 @@ class Ant(val m: AntSim, val g: Grid, var x: Float, var y: Float) {
                 newY = Functions.onTorus(0, g.height, (y + j * rightVector.y).toInt).toInt
                 if (g.cells(newX)(newY).cell_type == cellType) {
                     rightCount += g.cells(newX)(newY).life_time
+//                    rightCount += 1
                 }
             }
         }
@@ -114,19 +122,27 @@ class Ant(val m: AntSim, val g: Grid, var x: Float, var y: Float) {
         val a: Float = (m.noise(xOff, yOff + 1) - 0.5f) / 10f
         if (obstacleInFront()){
             vector.rotate(scala.util.Random.nextFloat()%(3.14f/2)+1)
+
+
         } else {
+            takeSamples(CellType.obstacle, 2) match {
+                case Direction.R => vector.rotate(-1f + a / 3)
+                case Direction.L => vector.rotate(1f + a / 3)
+                case Direction.U => vector.rotate(3.14f + scala.util.Random.nextFloat() % 0.2f)
+                case _ => vector.rotate(a)
+            }
 
 //            println(takeSamples(toSample))
             if (toSample == CellType.pheromone_red) {
                 takeSamples(CellType.food) match {
-                    case Direction.R => vector.rotate(0.2f + a / 3)
-                    case Direction.L => vector.rotate(-0.2f + a / 3)
+                    case Direction.R => vector.rotate(0.4f + a / 3)
+                    case Direction.L => vector.rotate(-0.4f + a / 3)
                     case _ => ()
                 }
             } else {
                 takeSamples(CellType.colony) match {
-                    case Direction.R => vector.rotate(0.2f + a / 3)
-                    case Direction.L => vector.rotate(-0.2f + a / 3)
+                    case Direction.R => vector.rotate(0.3f + a / 3)
+                    case Direction.L => vector.rotate(-0.3f + a / 3)
                     case _ => ()
                 }
             }

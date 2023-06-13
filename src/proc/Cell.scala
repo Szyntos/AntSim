@@ -41,7 +41,7 @@ class Cell(val m: AntSim, val g: Grid, val x: Int, val y: Int, var cell_type: Ce
             changeType(CellType.empty)
         }
         if (cell_type == CellType.pheromone_blue || cell_type == CellType.pheromone_red){
-            var r: Float = scala.util.Random.nextFloat() % 2f
+            var r: Float = scala.util.Random.nextFloat() % 3f
             life_time -= r
             prevR = Functions.boundBy(0, 200, prevR + (r / 170))
             prevG = Functions.boundBy(0, 200, prevG + 1)

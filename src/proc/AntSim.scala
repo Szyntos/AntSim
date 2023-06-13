@@ -10,6 +10,7 @@ class AntSim extends ScalaProcessingApplet {
     val ScreenDimension = 1000
     var d: Int = 200
     val grid = new Grid(this, d, d)
+    var activeSim: Boolean = false
 
     override def settings(): Unit = size(ScreenDimension, ScreenDimension)
 
@@ -25,21 +26,55 @@ class AntSim extends ScalaProcessingApplet {
     }
 
     override def mousePressed(): Unit = {
-        val newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble/ScreenDimension * grid.width).toInt).toInt
-        val newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble/ScreenDimension * grid.height).toInt).toInt
+        var newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble/ScreenDimension * grid.width).toInt).toInt
+        var newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble/ScreenDimension * grid.height).toInt).toInt
+        grid.cells(newX)(newY).changeType(CellType.obstacle)
+        newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt+1).toInt
+        newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt).toInt
+        grid.cells(newX)(newY).changeType(CellType.obstacle)
+        newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt-1).toInt
+        newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt).toInt
+        grid.cells(newX)(newY).changeType(CellType.obstacle)
+        newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt).toInt
+        newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt+1).toInt
+        grid.cells(newX)(newY).changeType(CellType.obstacle)
+        newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt).toInt
+        newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt-1).toInt
         grid.cells(newX)(newY).changeType(CellType.obstacle)
     }
 
     override def mouseDragged(): Unit = {
-        val newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt).toInt
-        val newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt).toInt
+        var newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt).toInt
+        var newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt).toInt
         grid.cells(newX)(newY).changeType(CellType.obstacle)
+        newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt + 1).toInt
+        newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt).toInt
+        grid.cells(newX)(newY).changeType(CellType.obstacle)
+        newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt - 1).toInt
+        newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt).toInt
+        grid.cells(newX)(newY).changeType(CellType.obstacle)
+        newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt).toInt
+        newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt + 1).toInt
+        grid.cells(newX)(newY).changeType(CellType.obstacle)
+        newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt).toInt
+        newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt - 1).toInt
+        grid.cells(newX)(newY).changeType(CellType.obstacle)
+    }
+
+    override def keyPressed(): Unit = {
+        if (activeSim){
+            activeSim = false
+        }else{
+            activeSim = true
+        }
     }
 
     override def draw(): Unit = {
         noStroke()
 //        background(0)
-        grid.updateGrid()
+        if (activeSim){
+            grid.updateGrid()
+        }
         grid.drawGrid()
     }
 }
