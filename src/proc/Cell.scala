@@ -25,10 +25,10 @@ class Cell(val m: AntSim, val g: Grid, val x: Int, val y: Int, var cell_type: Ce
     }
 
     def changeType(newCellType: CellType.CellType): Unit ={
-        if (newCellType == CellType.pheromone_blue || newCellType == CellType.pheromone_red) {
-
-            changeColor()
-        }
+//        if (newCellType == CellType.pheromone_blue || newCellType == CellType.pheromone_red) {
+//
+//            changeColor()
+//        }
         life_time = 100
         cell_type = newCellType
         changeColor()
@@ -37,7 +37,7 @@ class Cell(val m: AntSim, val g: Grid, val x: Int, val y: Int, var cell_type: Ce
 
     def updateCell(): Unit = {
         if (life_time < 0){
-            life_time = 1000
+            life_time = 100
             changeType(CellType.empty)
         }
         if (cell_type == CellType.pheromone_blue || cell_type == CellType.pheromone_red){

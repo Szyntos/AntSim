@@ -5,7 +5,7 @@ object Direction extends Enumeration {
     type Direction = Value
     val U, D, R, L, UR, UL, DR, DL, C = Value
 
-    def toXY(direction: Direction): Vector ={
+    def toVector(direction: Direction): Vector ={
         direction match {
             case U => new Vector(0, -1)
             case D => new Vector(0, 1)

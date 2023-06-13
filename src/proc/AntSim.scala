@@ -6,7 +6,7 @@ import processing.core.{PApplet, PConstants}
 import processing.event.KeyEvent
 
 /** Draws 3D spirals */
-class AntSim extends ScalaProcessingApplet {
+class AntSim extends PApplet {
     val ScreenDimension = 1000
     var d: Int = 200
     val grid = new Grid(this, d, d)
@@ -21,44 +21,41 @@ class AntSim extends ScalaProcessingApplet {
         rectMode(PConstants.CENTER)
     }
 
-    def dist(x1: Int, y1: Int, x2: Int, y2: Int): Float = {
-        sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)).toFloat
+
+    def brush(cellType: CellType.CellType): Unit ={
+        var newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt).toInt
+        var newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt).toInt
+        grid.cells(newX)(newY).changeType(cellType)
+        newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt + 1).toInt
+        newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt).toInt
+        grid.cells(newX)(newY).changeType(cellType)
+        newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt - 1).toInt
+        newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt).toInt
+        grid.cells(newX)(newY).changeType(cellType)
+        newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt).toInt
+        newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt + 1).toInt
+        grid.cells(newX)(newY).changeType(cellType)
+        newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt).toInt
+        newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt - 1).toInt
+        grid.cells(newX)(newY).changeType(cellType)
+    }
+
+    def mouseHandler(): Unit = {
+        if (mouseButton == PConstants.LEFT) {
+            brush(CellType.obstacle)
+        } else if (mouseButton == PConstants.CENTER) {
+            brush(CellType.food)
+        } else {
+            brush(CellType.empty)
+        }
     }
 
     override def mousePressed(): Unit = {
-        var newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble/ScreenDimension * grid.width).toInt).toInt
-        var newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble/ScreenDimension * grid.height).toInt).toInt
-        grid.cells(newX)(newY).changeType(CellType.obstacle)
-        newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt+1).toInt
-        newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt).toInt
-        grid.cells(newX)(newY).changeType(CellType.obstacle)
-        newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt-1).toInt
-        newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt).toInt
-        grid.cells(newX)(newY).changeType(CellType.obstacle)
-        newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt).toInt
-        newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt+1).toInt
-        grid.cells(newX)(newY).changeType(CellType.obstacle)
-        newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt).toInt
-        newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt-1).toInt
-        grid.cells(newX)(newY).changeType(CellType.obstacle)
+        mouseHandler()
     }
 
     override def mouseDragged(): Unit = {
-        var newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt).toInt
-        var newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt).toInt
-        grid.cells(newX)(newY).changeType(CellType.obstacle)
-        newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt + 1).toInt
-        newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt).toInt
-        grid.cells(newX)(newY).changeType(CellType.obstacle)
-        newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt - 1).toInt
-        newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt).toInt
-        grid.cells(newX)(newY).changeType(CellType.obstacle)
-        newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt).toInt
-        newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt + 1).toInt
-        grid.cells(newX)(newY).changeType(CellType.obstacle)
-        newX = Functions.boundBy(0, grid.width - 1, (mouseX.toDouble / ScreenDimension * grid.width).toInt).toInt
-        newY = Functions.boundBy(0, grid.height - 1, (mouseY.toDouble / ScreenDimension * grid.height).toInt - 1).toInt
-        grid.cells(newX)(newY).changeType(CellType.obstacle)
+        mouseHandler()
     }
 
     override def keyPressed(): Unit = {

@@ -17,11 +17,17 @@ class Grid(val m: AntSim, var width: Int, var height: Int){
             cells(i)(j) = new Cell(m, this, i, j, CellType.empty)
         }
     }
+    populateGridBy(CellType.food, Direction.C, 3000)
+    populateGridBy(CellType.colony, Direction.UL, 1000)
+    for (j <- 0 until antCount) {
+        ants(j) = new Ant(m, this, 20, 20)
+    }
 
 
 
 
-    def populateGridBy(cellType: CellType.CellType, where: Direction.Direction, count: Int): Unit = {
+    def populateGridBy(cellType: CellType.CellType, where: Direction.Direction, n: Int): Unit = {
+        val count: Int = boundBy(0, width*height-1, n).toInt
         val population = Array.ofDim[Cell](count)
         var populated: Int = 0
         var randomX: Int = 0
@@ -77,8 +83,8 @@ class Grid(val m: AntSim, var width: Int, var height: Int){
                 while (j < 5) {
                     if (populated != count) {
                         direction = Direction(rand.nextInt(Direction.maxId))
-                        randomX = boundBy(0, width - 1, population(i).x + Direction.toXY(direction).x).toInt
-                        randomY = boundBy(0, height - 1, population(i).y + Direction.toXY(direction).y).toInt
+                        randomX = boundBy(0, width - 1, population(i).x + Direction.toVector(direction).x).toInt
+                        randomY = boundBy(0, height - 1, population(i).y + Direction.toVector(direction).y).toInt
                         if (cells(randomX)(randomY).cell_type != cellType) {
                             population(populated) = cells(randomX)(randomY)
                             population(populated).changeType(cellType)
@@ -92,11 +98,7 @@ class Grid(val m: AntSim, var width: Int, var height: Int){
         }
     }
 
-    populateGridBy(CellType.food, Direction.C, 3000)
-    populateGridBy(CellType.colony, Direction.UL, 1000)
-    for (j <- 0 until antCount) {
-        ants(j) = new Ant(m, this, 20, 20)
-    }
+
     def updateGrid(): Unit ={
         for (j <- 0 until antCount) {
             ants(j).move()

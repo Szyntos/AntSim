@@ -1,20 +1,26 @@
 package proc
 
-import processing.core.PConstants
-
 class Ant(val m: AntSim, val g: Grid, var x: Float, var y: Float) {
     var vector: Vector = new Vector(0, 1)
     vector.desiredMagn = 1
     var xOff: Float = scala.util.Random.nextInt(10) + scala.util.Random.nextFloat()%12
     var yOff: Float = scala.util.Random.nextInt(10)
     var color: Color = new Color(0, 0, 0)
-    val width: Int = 4
-    val height: Int = 4
+    val width: Int = 6
+    val height: Int = 6
     var hasFood: Boolean = false
     var X: Int = Functions.boundBy(0, g.width - 1, x.toInt).toInt
     var Y: Int = Functions.boundBy(0, g.height - 1, y.toInt).toInt
     var toSample: CellType.CellType = CellType.pheromone_red
     var leaving: CellType.CellType = CellType.pheromone_blue
+
+    def changeColor(): Unit ={
+        if (leaving == CellType.pheromone_blue){
+            color = new Color(0, 40, 0)
+        } else {
+            color = new Color(220, 220, 100)
+        }
+    }
 
     def indices(): Unit ={
         X = Functions.boundBy(0, g.width - 1, x.toInt).toInt
@@ -73,6 +79,7 @@ class Ant(val m: AntSim, val g: Grid, var x: Float, var y: Float) {
                 }
 //                g.cells(newX)(newY).changeType(CellType.colony)
             }
+            forwardVector.rotate(aOff * -i)
 
         }
         for (i <- 2 to 4) {
@@ -195,6 +202,7 @@ class Ant(val m: AntSim, val g: Grid, var x: Float, var y: Float) {
             toSample = CellType.pheromone_red
         }
         leavePheromone(leaving)
+        changeColor()
 
     }
 
