@@ -7,7 +7,7 @@ import processing.event.KeyEvent
 
 /** Draws 3D spirals */
 class AntSim extends PApplet {
-    val ScreenDimension = 1000
+    val ScreenDimension = 800
     var d: Int = 200
     val grid = new Grid(this, d, d)
     var activeSim: Boolean = false

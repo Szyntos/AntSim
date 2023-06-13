@@ -54,28 +54,34 @@ class Ant(val m: AntSim, val g: Grid, var x: Float, var y: Float) {
         val leftVector = vector.copy()
         val rightVector = vector.copy()
         val forwardVector = vector.copy()
+        var flag: Boolean = false
         for (i <- -4 to -2){
-
+            flag = false
             leftVector.rotate(aOff * i)
             for (j <- 1 to samples){
                 newX = Functions.onTorus(0, g.width, (x + j * leftVector.x).toInt).toInt
                 newY = Functions.onTorus(0, g.height, (y + j * leftVector.y).toInt).toInt
-                if (g.cells(newX)(newY).cell_type == cellType){
+                if (g.cells(newX)(newY).cell_type == cellType && !flag){
                     leftCount += g.cells(newX)(newY).life_time
 //                    leftCount += 1
+                } else if (g.cells(newX)(newY).cell_type == CellType.obstacle  && cellType != CellType.obstacle){
+                    flag = true
                 }
 
 
             }
         }
         for (i <- -1 to 1) {
+            flag = false
             forwardVector.rotate(aOff * i)
             for (j <- 1 to samples) {
                 newX = Functions.onTorus(0, g.width, (x + j * forwardVector.x).toInt).toInt
                 newY = Functions.onTorus(0, g.height, (y + j * forwardVector.y).toInt).toInt
-                if (g.cells(newX)(newY).cell_type == cellType) {
+                if (g.cells(newX)(newY).cell_type == cellType && !flag) {
                     forwardCount += g.cells(newX)(newY).life_time
-//                    forwardCount += 1
+                    //                    leftCount += 1
+                } else if (g.cells(newX)(newY).cell_type == CellType.obstacle && cellType != CellType.obstacle) {
+                    flag = true
                 }
 //                g.cells(newX)(newY).changeType(CellType.colony)
             }
@@ -83,13 +89,16 @@ class Ant(val m: AntSim, val g: Grid, var x: Float, var y: Float) {
 
         }
         for (i <- 2 to 4) {
+            flag = false
             rightVector.rotate(aOff * i)
             for (j <- 1 to samples) {
                 newX = Functions.onTorus(0, g.width, (x + j * rightVector.x).toInt).toInt
                 newY = Functions.onTorus(0, g.height, (y + j * rightVector.y).toInt).toInt
-                if (g.cells(newX)(newY).cell_type == cellType) {
+                if (g.cells(newX)(newY).cell_type == cellType && !flag) {
                     rightCount += g.cells(newX)(newY).life_time
-//                    rightCount += 1
+                    //                    leftCount += 1
+                } else if (g.cells(newX)(newY).cell_type == CellType.obstacle && cellType != CellType.obstacle) {
+                    flag = true
                 }
             }
         }
