@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AntSim.iml" filepath="$PROJECT_DIR$/AntSim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ants.iml" filepath="$PROJECT_DIR$/.idea/modules/ants.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ants-build.iml" filepath="$PROJECT_DIR$/.idea/modules/ants-build.iml" />
     </modules>
   </component>
 </project>

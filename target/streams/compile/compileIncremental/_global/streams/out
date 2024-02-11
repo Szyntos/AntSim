@@ -1,0 +1,38 @@
+[debug] [zinc] IncrementalCompile -----------
+[debug] IncrementalCompile.incrementalCompile
+[debug] previous = Stamps for: 16 products, 11 sources, 2 libraries
+[debug] current source = Set(${BASE}/src/main/scala/proc/Config.scala, ${BASE}/src/main/scala/proc/AntSim.scala, ${BASE}/src/main/scala/proc/Utils/Vector.scala, ${BASE}/src/main/scala/proc/Utils/Color.scala, ${BASE}/src/main/scala/proc/Ant.scala, ${BASE}/src/main/scala/proc/Utils/Functions.scala, ${BASE}/src/main/scala/proc/Direction.scala, ${BASE}/src/main/scala/proc/Cell.scala, ${BASE}/src/main/scala/proc/Displayable.scala, ${BASE}/src/main/scala/proc/CellType.scala, ${BASE}/src/main/scala/proc/Grid.scala)
+[debug] > initialChanges = InitialChanges(Changes(added = Set(), removed = Set(), changed = Set(${BASE}/src/main/scala/proc/Ant.scala), unmodified = ...),Set(),Set(),API Changes: Set())
+[debug] 
+[debug] Initial source changes:
+[debug] 	removed: Set()
+[debug] 	added: Set()
+[debug] 	modified: Set(${BASE}/src/main/scala/proc/Ant.scala)
+[debug] Invalidated products: Set()
+[debug] External API changes: API Changes: Set()
+[debug] Modified binary dependencies: Set()
+[debug] Initial directly invalidated classes: Set(proc.Ant)
+[debug] Sources indirectly invalidated by:
+[debug] 	product: Set()
+[debug] 	binary dep: Set()
+[debug] 	external source: Set()
+[debug] All initially invalidated classes: Set(proc.Ant)
+[debug] All initially invalidated sources:Set(${BASE}/src/main/scala/proc/Ant.scala)
+[debug] Initial set of included nodes: proc.Ant
+[debug] compilation cycle 1
+[info] compiling 1 Scala source to C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\target\scala-2.13\classes ...
+[debug] Getting org.scala-sbt:compiler-bridge_2.13:1.8.1:compile for Scala 2.13.11
+[debug] [zinc] Running cached compiler 35d80cf6 for Scala compiler version 2.13.11
+[debug] [zinc] The Scala compiler is invoked with:
+[debug] 	-bootclasspath
+[debug] 	C:\Users\Domin\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-library\2.13.11\scala-library-2.13.11.jar
+[debug] 	-classpath
+[debug] 	C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\target\scala-2.13\classes;C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\lib\core.jar;C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\lib\gluegen-rt.jar;C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\lib\jogl-all.jar
+[debug] New invalidations:
+[debug] Initial set of included nodes: 
+[debug] Previously invalidated, but (transitively) depend on new invalidations:
+[debug] Final step, transitive dependencies:
+[debug] 	Set()
+[debug] No classes were invalidated.
+[debug] Scala compilation took 3.144086 s
+[info] done compiling

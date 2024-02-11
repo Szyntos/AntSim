@@ -1,0 +1,11 @@
+[debug] > Exec(run, None, None)
+[debug] Evaluating tasks: Compile / run
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 11 Scala sources to C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\target\scala-2.13\classes ...
+[info] Non-compiled module 'compiler-bridge_2.13' for Scala 2.13.11. Compiling...
+[info]   Compilation completed in 8.663s.
+[warn] 115 deprecations; re-run with -deprecation for details
+[warn] one warning found
+[info] done compiling
+[success] Total time: 12 s, completed 14 Jun 2023, 12:24:43
+[debug] > Exec(idea-shell, None, None)

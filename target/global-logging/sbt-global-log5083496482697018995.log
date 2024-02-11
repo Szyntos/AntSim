@@ -1,0 +1,141 @@
+[debug] > Exec(early(addDefaultCommands), None, None)
+[debug] > Exec(addDefaultCommands, None, None)
+[debug] > Exec(early(initialize), None, None)
+[debug] > Exec(initialize, None, None)
+[debug] > Exec(early(addPluginSbtFile="""C:\Users\Domin\AppData\Local\Temp\idea3.sbt"""), None, None)
+[debug] > Exec(addPluginSbtFile="""C:\Users\Domin\AppData\Local\Temp\idea3.sbt""", None, None)
+[debug] > Exec(boot, None, None)
+[debug] > Exec(writeSbtVersion, None, None)
+[debug] > Exec(reload, None, None)
+[debug] > Exec(sbtStashOnFailure, None, None)
+[debug] > Exec(onFailure loadFailed, None, None)
+[debug] > Exec(loadp, None, None)
+[info] welcome to sbt 1.8.3 (Amazon.com Inc. Java 18.0.2)
+[debug]       Load.loadUnit: plugins took 95.9865ms
+[debug]       Load.loadUnit: defsScala took 0.473ms
+[debug] [Loading] Scanning directory C:\Users\Domin\.sbt\1.0\plugins
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in C:\Users\Domin\.sbt\1.0\plugins, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 19.3129 ms
+[debug]           Load.resolveProject(global-plugins) took 45.8307ms
+[debug]         Load.loadTransitive: finalizeProject(Project(id global-plugins, base: C:\Users\Domin\.sbt\1.0\plugins, plugins: List(<none>))) took 83.3146ms
+[debug] [Loading] Done in C:\Users\Domin\.sbt\1.0\plugins, returning: (global-plugins)
+[debug]       Load.loadUnit: loadedProjectsRaw took 105.8631ms
+[debug]       Load.loadUnit: cleanEvalClasses took 0.2679ms
+[debug]     Load.loadUnit(file:/C:/Users/Domin/.sbt/1.0/plugins/, ...) took 213.971ms
+[debug]   Load.apply: load took 403.575ms
+[debug]   Load.apply: resolveProjects took 5.4009ms
+[debug]   Load.apply: finalTransforms took 52.657ms
+[debug]   Load.apply: config.delegates took 6.2524ms
+[debug]   Load.apply: Def.make(settings)... took 368.6074ms
+[debug]   Load.apply: structureIndex took 82.4427ms
+[debug]   Load.apply: mkStreams took 1.7299ms
+[info] loading global plugins from C:\Users\Domin\.sbt\1.0\plugins
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Load.defaultLoad until apply took 1908.5965ms
+[debug]           Load.loadUnit: plugins took 18.6466ms
+[debug]           Load.loadUnit: defsScala took 0.0034ms
+[debug] [Loading] Scanning directory C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\project
+[debug]             Load.loadUnit: mkEval took 5.4605ms
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\project, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 1.8849 ms
+[info] loading settings for project ants-build from idea3.sbt ...
+[debug]               Load.resolveProject(ants-build) took 8.5233ms
+[debug]             Load.loadTransitive: finalizeProject(Project(id ants-build, base: C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\project, plugins: List(<none>))) took 11.0305ms
+[debug] [Loading] Done in C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\project, returning: (ants-build)
+[debug]           Load.loadUnit: loadedProjectsRaw took 107.9ms
+[debug]           Load.loadUnit: cleanEvalClasses took 6.5661ms
+[debug]         Load.loadUnit(file:/C:/Users/Domin/Documents/Studia/4_semestr/Programowanie_w_jezyku_Scala/ants/project/, ...) took 134.0383ms
+[debug]       Load.apply: load took 135.39ms
+[debug]       Load.apply: resolveProjects took 0.117ms
+[debug]       Load.apply: finalTransforms took 10.8702ms
+[debug]       Load.apply: config.delegates took 0.358ms
+[debug]       Load.apply: Def.make(settings)... took 79.7883ms
+[debug]       Load.apply: structureIndex took 30.0629ms
+[debug]       Load.apply: mkStreams took 0.0027ms
+[info] loading project definition from C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\project
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug]     Load.loadUnit: plugins took 531.3832ms
+[debug]     Load.loadUnit: defsScala took 0.0048ms
+[debug] [Loading] Scanning directory C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants
+[debug]       Load.loadUnit: mkEval took 0.204ms
+[debug] [Loading] Found root project root w/ remaining 
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(org.jetbrains.sbt.StructurePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(org.jetbrains.sbt.IdeaShellPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(org.jetbrains.sbt.indices.SbtIntellijIndicesPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(org.jetbrains.sbt.StructurePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(org.jetbrains.sbt.IdeaShellPlugin)))
+[debug] Clause(And(Set(Atom(sbt.plugins.CorePlugin), Atom(sbt.plugins.JvmPlugin))),Set(Atom(org.jetbrains.sbt.indices.SbtIntellijIndicesPlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.SemanticdbPlugin,org.jetbrains.sbt.indices.SbtIntellijIndicesPlugin,sbt.plugins.JUnitXmlReportPlugin,org.jetbrains.sbt.IdeaShellPlugin,org.jetbrains.sbt.StructurePlugin,sbt.plugins.MiniDependencyTreePlugin)
+[debug] Plugins.deducer#function took 1.674 ms
+[info] loading settings for project root from build.sbt ...
+[debug]         Load.resolveProject(root) took 31.4869ms
+[debug]       Load.loadTransitive: finalizeProject(Project(id root, base: C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants, plugins: List(<none>))) took 34.6761ms
+[debug] [Loading] Done in C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants, returning: (root)
+[debug]     Load.loadUnit: loadedProjectsRaw took 100.2839ms
+[debug]     Load.loadUnit: cleanEvalClasses took 14.4248ms
+[debug]   Load.loadUnit(file:/C:/Users/Domin/Documents/Studia/4_semestr/Programowanie_w_jezyku_Scala/ants/, ...) took 647.2155ms
+[debug] Load.apply: load took 649.0502ms
+[debug] Load.apply: resolveProjects took 0.1377ms
+[debug] Load.apply: finalTransforms took 22.5412ms
+[debug] Load.apply: config.delegates took 0.5544ms
+[debug] Load.apply: Def.make(settings)... took 59.6378ms
+[debug] Load.apply: structureIndex took 21.7263ms
+[debug] Load.apply: mkStreams took 0.0025ms
+[info] set current project to ants (in build file:/C:/Users/Domin/Documents/Studia/4_semestr/Programowanie_w_jezyku_Scala/ants/)
+[debug] > Exec(sbtPopOnFailure, None, None)
+[debug] > Exec(resumeFromFailure, None, None)
+[debug] > Exec(notifyUsersAboutShell, None, None)
+[debug] > Exec(iflast shell, None, None)
+[debug] > Exec(; set ideaPort in Global := 6160 ; idea-shell, None, None)
+[debug] > Exec(set ideaPort in Global := 6160, None, None)
+[info] Defining Global / ideaPort
+[info] The new value will be used by Compile / compile, Test / compile
+[debug] Defining 
+[debug] 	Global / ideaPort
+[debug] 
+[debug] The new value will be used by 
+[debug] 	Compile / compile
+[debug] 	Test / compile
+[info] Reapplying settings...
+[info] set current project to ants (in build file:/C:/Users/Domin/Documents/Studia/4_semestr/Programowanie_w_jezyku_Scala/ants/)
+[debug] > Exec(idea-shell, None, None)

@@ -1,0 +1,39 @@
+[debug] Packaging C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\target\scala-2.13\ants_2.13-0.1.0-SNAPSHOT.jar ...
+[debug] Input file mappings:
+[debug] 	proc
+[debug] 	  C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\target\scala-2.13\classes\proc
+[debug] 	proc\Ant.class
+[debug] 	  C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\target\scala-2.13\classes\proc\Ant.class
+[debug] 	proc\AntSim$.class
+[debug] 	  C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\target\scala-2.13\classes\proc\AntSim$.class
+[debug] 	proc\AntSim.class
+[debug] 	  C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\target\scala-2.13\classes\proc\AntSim.class
+[debug] 	proc\Cell.class
+[debug] 	  C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\target\scala-2.13\classes\proc\Cell.class
+[debug] 	proc\CellType$.class
+[debug] 	  C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\target\scala-2.13\classes\proc\CellType$.class
+[debug] 	proc\CellType.class
+[debug] 	  C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\target\scala-2.13\classes\proc\CellType.class
+[debug] 	proc\Config$.class
+[debug] 	  C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\target\scala-2.13\classes\proc\Config$.class
+[debug] 	proc\Config.class
+[debug] 	  C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\target\scala-2.13\classes\proc\Config.class
+[debug] 	proc\Direction$.class
+[debug] 	  C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\target\scala-2.13\classes\proc\Direction$.class
+[debug] 	proc\Direction.class
+[debug] 	  C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\target\scala-2.13\classes\proc\Direction.class
+[debug] 	proc\Displayable.class
+[debug] 	  C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\target\scala-2.13\classes\proc\Displayable.class
+[debug] 	proc\Grid.class
+[debug] 	  C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\target\scala-2.13\classes\proc\Grid.class
+[debug] 	proc\Utils
+[debug] 	  C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\target\scala-2.13\classes\proc\Utils
+[debug] 	proc\Utils\Color.class
+[debug] 	  C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\target\scala-2.13\classes\proc\Utils\Color.class
+[debug] 	proc\Utils\Functions$.class
+[debug] 	  C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\target\scala-2.13\classes\proc\Utils\Functions$.class
+[debug] 	proc\Utils\Functions.class
+[debug] 	  C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\target\scala-2.13\classes\proc\Utils\Functions.class
+[debug] 	proc\Utils\Vector.class
+[debug] 	  C:\Users\Domin\Documents\Studia\4_semestr\Programowanie_w_jezyku_Scala\ants\target\scala-2.13\classes\proc\Utils\Vector.class
+[debug] Done packaging.
